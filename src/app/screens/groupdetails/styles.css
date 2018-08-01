@@ -1,0 +1,10 @@
+.group-details-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.group-details-header button {
+    height: 40px;
+}

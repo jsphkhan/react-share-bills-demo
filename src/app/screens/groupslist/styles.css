@@ -1,0 +1,31 @@
+.groups-list-container {
+    padding: 10px 0;
+}
+.groups-list-title {
+    margin-bottom: 10px;
+}
+.groups-list-row {
+    padding: 15px 5px;
+    border-bottom: 1px solid #ddd;
+    margin-right: 100px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .groups-list-container {
+        padding: 0;
+    }
+    .groups-list-title {
+        display: none;
+    }
+    .groups-list-container ul {
+        display: flex;
+    }
+    .groups-list-container ul a {
+        flex: 1;
+    }
+    .groups-list-row {
+        border-bottom: none;
+    }
+}
