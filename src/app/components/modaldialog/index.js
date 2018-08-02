@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-export default class ModalDialog extends Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-    }
+export default class ModalDialog extends PureComponent {
     render() {
         const {children, show, onClose, title} = this.props;
         if(!show) {

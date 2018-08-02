@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addBillAction } from '../../redux/actions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import './styles.css';
 
 class AddBillInner extends Component {
@@ -40,11 +42,16 @@ class AddBillInner extends Component {
             */
             this.props.onClose();
         } else {
-            console.warn('Empty fields not allowed');
+            //show error toast
+            toast.error("Input fields cannot be empty", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                hideProgressBar: true,
+                autoClose: 2000
+            });
         }
     }
     render() {
-        let {groupName, groupMembers} = this.props;
+        let {groupName, groupMembers, currency} = this.props;
         return (
           <div className="form-box">
             <p className="lead text-center group-name">{groupName.toUpperCase()}</p>
@@ -58,7 +65,7 @@ class AddBillInner extends Component {
                 />
                 </div>
                 <div className="form-group">
-                <label className="text-secondary">Amount</label>
+                <label className="text-secondary">Amount ({currency})</label>
                 <input
                     type="number" 
                     className="form-control"
@@ -79,6 +86,7 @@ class AddBillInner extends Component {
                     onClick={this.submitBill}>Save</button>
                 </div>
             </div>
+            <ToastContainer />
           </div>
         );
     }
@@ -88,6 +96,7 @@ AddBillInner.propTypes = {
   groupName: PropTypes.string.isRequired,
   groupId: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
+  currency: PropTypes.string.isRequired
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -1,0 +1,15 @@
+.list-row-details {
+    margin-top: 10px;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #dddddd;
+}
+.list-row-details-list {
+    margin: 0 10px;
+}
+.list-row-details-list-row {
+    padding: 15px 5px;
+    border-bottom: 1px solid rgb(240, 240, 240); 
+}
+.list-row-details-list-row:last-child {
+    border-bottom: none;
+}

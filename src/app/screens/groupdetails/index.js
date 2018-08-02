@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ModalDialog from '../../components/modaldialog';
 import AddBill from '../addbill';
-import BillsList from '../billslist';
+import BillsList from '../../components/billslist';
+import monthUtil from '../../utils/monthutil';
 import './styles.css';
 
 class GroupDetailsInner extends Component {
@@ -42,6 +43,10 @@ class GroupDetailsInner extends Component {
     handleClose() {
         this.setState({showModal: false});
     }
+    parseDate(timestamp) {
+        let date = new Date(timestamp);
+        return `${monthUtil[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+    }
     render() {
         const {groupName, groupCreated, showModal} = this.state;
         return (
@@ -49,7 +54,7 @@ class GroupDetailsInner extends Component {
                 <div className="group-details-header">
                     <div>
                         <p className="lead">{groupName}</p>
-                        <p className="text-secondary">Created At: {(new Date(groupCreated)).toDateString()}</p>
+                        <p className="text-secondary">Created On: {this.parseDate(groupCreated)}</p>
                     </div>
                     <button 
                         className="btn btn-primary"
@@ -58,6 +63,7 @@ class GroupDetailsInner extends Component {
                 <BillsList groupId={this.state.groupId}/>
                 <ModalDialog show={showModal} onClose={this.handleClose} title="Add Bill">
                     <AddBill 
+                        currency={this.props.groupsReducer.currency}
                         groupMembers={this.state.groupMembers}
                         groupName={this.state.groupName}
                         groupId={this.state.groupId}

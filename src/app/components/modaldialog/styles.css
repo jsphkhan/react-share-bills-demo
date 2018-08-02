@@ -29,12 +29,15 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: 768px) {
     .modal-box {
         width: 100%;
         height: 100%;
-        padding: 20px;
+        /* padding: 20px; */
         background-color: #ffffff;
         border-radius: 0px;
+    }
+    .modal-box-header {
+        margin-top: 60px;
     }
 }

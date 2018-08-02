@@ -7,6 +7,6 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import store from './app/redux/store';
 
-window.store = store; //for debugging
+//window.store = store; //for debugging
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
