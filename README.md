@@ -1,5 +1,5 @@
 # Project Title
-Share Bills Demo using ReactJS
+Share Bills Demo using ReactJS and Redux
 
 ## Description
 Single Page Application built with ReactJS which showcases a Bill Sharing Application. Features are as follows:
